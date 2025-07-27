@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Checkout{% endblock %}
+{% block content %}
+<h2><i class="bi bi-check2-circle"></i> Checkout Confirmation</h2>
+
+<p>Please review your order before confirming.</p>
+
+<ul>
+    {% for item in group_cart %}
+        <li>
+            {{ item.name }}: <span class="badge bg-success">{{ item.qty }}</span>
+            <span class="text-secondary">× ₹{{ item.price }} = ₹{{ item.subtotal }}</span>
+        </li>
+    {% endfor %}
+</ul>
+<p class="fs-5 fw-bold">Total Amount: ₹{{ total }}</p>
+
+<form method="POST">
+    <input type="submit" value="Confirm Purchase" class="btn btn-success" />
+    <a href="{{ url_for('view_cart') }}" class="btn btn-secondary ms-2">Back to Cart</a>
+</form>
+{% endblock %}

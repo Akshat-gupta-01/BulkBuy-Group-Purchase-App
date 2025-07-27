@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h2><i class="bi bi-basket"></i> Welcome, {{ username }}!</h2>
+
+<h3><i class="bi bi-cart4"></i> Group Cart</h3>
+<ul>
+    {% for item in group_cart %}
+        <li>
+            {{ item.name }}: <span class="badge bg-success">{{ item.qty }}</span>
+            <span class="text-secondary">× ₹{{ item.price }} = ₹{{ item.subtotal }}</span>
+        </li>
+    {% else %}
+        <li>No items in group cart yet.</li>
+    {% endfor %}
+</ul>
+<p class="fs-5 fw-bold">Total: ₹{{ total }}</p>
+
+<hr/>
+
+<h3><i class="bi bi-cash-coin"></i> Add to Group Cart</h3>
+<form method="POST" class="row g-2">
+    <div class="col-12">
+        <label>Product</label>
+        <select name="product_id" required>
+            <option value="">Select a product</option>
+            {% for p in products %}
+                <option value="{{ p.id }}">{{ p.name }} (₹{{ p.price }})</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-12">
+        <label>Quantity</label>
+        <input type="number" min="1" name="quantity" required />
+    </div>
+    <div class="col-12 d-grid gap-2">
+        <input type="submit" value="Add" class="btn btn-success" />
+    </div>
+</form>
+
+<p class="mt-4">
+    <a href="{{ url_for('view_cart') }}" class="btn btn-warning me-2">
+        <i class="bi bi-cart-check"></i> View Cart
+    </a>
+    <a href="{{ url_for('logout') }}" class="btn logout"><i class="bi bi-box-arrow-right"></i> Log out</a>
+</p>
+{% endblock %}

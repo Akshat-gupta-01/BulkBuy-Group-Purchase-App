@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Supplier Dashboard{% endblock %}
+{% block content %}
+<h2><i class="bi bi-truck"></i> Welcome, {{ username }} (Supplier)</h2>
+
+<h3>Your Products</h3>
+<ul>
+    {% for p in products %}
+        <li>{{ p.name }} – ₹{{ p.price }}</li>
+    {% else %}
+        <li>No products added yet.</li>
+    {% endfor %}
+</ul>
+
+<hr />
+<h3><i class="bi bi-plus-circle"></i> Add a Product</h3>
+<form method="POST">
+    <label>Product Name</label>
+    <input name="product_name" required />
+    <label>Price</label>
+    <input type="number" name="product_price" min="1" required />
+    <input type="submit" value="Add Product" class="btn btn-success mt-2" />
+</form>
+
+<p class="mt-4">
+  <a href="{{ url_for('logout') }}" class="btn logout"><i class="bi bi-box-arrow-right"></i> Log out</a>
+</p>
+{% endblock %}

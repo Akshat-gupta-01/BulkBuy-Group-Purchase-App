@@ -1,0 +1,247 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(125deg, #dbeafe 0%, #f0fdfa 70%);
+    color: #193047;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 520px;
+    background: rgba(255, 255, 255, 0.98);
+    margin: 48px auto;
+    padding: 35px 28px 28px 28px;
+    border-radius: 22px;
+    box-shadow: 0 10px 36px 0 rgba(37, 99, 235, 0.11), 0 1.5px 6px 0 rgba(0, 0, 0, 0.06);
+    animation: fadeIn 0.8s linear;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+h2,
+h3 {
+    color: #2563eb;
+    margin-bottom: 17px;
+    font-weight: 750;
+    letter-spacing: 1.5px;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.19rem;
+}
+
+p,
+ul,
+label {
+    color: #334155;
+    font-size: 1.05rem;
+}
+
+form {
+    margin-bottom: 13px;
+}
+
+label {
+    margin-top: 16px;
+    margin-bottom: 4px;
+    font-weight: 600;
+    display: block;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 14px 14px;
+    color: #222d3d;
+    background: #f1f5f9;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    font-size: 1.04rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.01);
+    transition: border-color 0.25s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+    border-color: #06b6d4;
+    outline: none;
+    background: #fff;
+    box-shadow: 0 2px 10px #38bdf82a;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    opacity: 0.45;
+}
+
+input[type="submit"],
+.btn,
+.button,
+a.button,
+a.btn,
+.logout {
+    background: linear-gradient(92deg, #2563eb 60%, #21d4fd 100%);
+    color: #fff !important;
+    border: none;
+    border-radius: 25px;
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 12px 30px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    box-shadow: 0 2px 10px #2563eb23;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    transition: background 0.23s, box-shadow 0.18s, transform 0.14s;
+    text-decoration: none;
+}
+
+input[type="submit"]:hover,
+.btn:hover,
+.button:hover,
+a.button:hover,
+.logout:hover {
+    background: linear-gradient(100deg, #1d4ed8 60%, #0ea5e9 100%) !important;
+    transform: translateY(-1px) scale(1.03);
+    box-shadow: 0 6px 24px #2563eb22;
+}
+
+.logout,
+.btn-danger,
+.alert-danger {
+    background: linear-gradient(92deg, #ef4444 60%, #fb7185 100%) !important;
+    color: #fff !important;
+}
+
+.logout:hover,
+.btn-danger:hover {
+    background: linear-gradient(110deg, #c026d3 60%, #f43f5e 100%) !important;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 24px;
+}
+
+li {
+    padding: 10px 0 10px 3px;
+    margin: 0;
+    border-bottom: 1px solid #dbeafe;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.05rem;
+    transition: background 0.18s;
+}
+
+li:not(:last-child):hover {
+    background: #f0fdfa;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+.fs-5 {
+    font-size: 1.19rem;
+}
+
+.fw-bold {
+    font-weight: 600;
+}
+
+hr {
+    margin: 29px 0 18px 0;
+    border: none;
+    border-top: 1.7px solid #dcfce7;
+}
+
+.mt-2 {
+    margin-top: 16px !important;
+}
+
+.mt-4 {
+    margin-top: 35px !important;
+}
+
+.me-2 {
+    margin-right: 12px !important;
+}
+
+a {
+    color: #06b6d4;
+    transition: color 0.17s;
+}
+
+a:hover,
+a:focus {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+.flash-message,
+.alert {
+    padding: 12px 23px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.06rem;
+    letter-spacing: 0.07em;
+    box-shadow: 0 1px 8px #cdf7e58e;
+}
+
+.alert-success,
+.flash-success {
+    background: #def8e7;
+    color: #048f3f;
+    border: 1.2px solid #34d399;
+}
+
+.alert-danger,
+.flash-error {
+    background: #ffe4e6;
+    color: #be123c;
+    border: 1.2px solid #f43f5e;
+}
+
+@media (max-width: 700px) {
+    .container {
+        max-width: 99vw;
+        padding: 14px 5vw 18px 6vw;
+        margin: 14px 0;
+        border-radius: 10px;
+    }
+
+    h2,
+    h3 {
+        font-size: 1.07rem;
+    }
+
+    input,
+    select {
+        font-size: 0.97rem;
+    }
+
+    .fs-5 {
+        font-size: 1.05rem;
+    }
+}

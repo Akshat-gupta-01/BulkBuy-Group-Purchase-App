@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Your Cart{% endblock %}
+{% block content %}
+<h2><i class="bi bi-cart3"></i> Your Cart</h2>
+
+{% if group_cart %}
+<ul>
+    {% for item in group_cart %}
+        <li>
+            {{ item.name }}: <span class="badge bg-success">{{ item.qty }}</span>
+            <span class="text-secondary">× ₹{{ item.price }} = ₹{{ item.subtotal }}</span>
+        </li>
+    {% endfor %}
+</ul>
+<p class="fs-5 fw-bold">Total: ₹{{ total }}</p>
+
+<a href="{{ url_for('checkout') }}" class="btn btn-primary mt-3">
+    <i class="bi bi-credit-card"></i> Proceed to Checkout
+</a>
+{% else %}
+<p>Your cart is empty.</p>
+<a href="{{ url_for('dashboard') }}" class="btn btn-secondary mt-3">Back to Dashboard</a>
+{% endif %}
+{% endblock %}
