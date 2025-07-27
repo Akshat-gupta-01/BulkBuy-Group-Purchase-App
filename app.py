@@ -35,7 +35,7 @@ def save_cart(cart):
     session["group_cart"] = cart
 
 
-@app.before_request
+@app.before_first_request
 def create_tables():
     db.create_all()
 
@@ -224,6 +224,5 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
-    port = int(os.environ.get("PORT", 10000))  # Render uses PORT env var
+    port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
